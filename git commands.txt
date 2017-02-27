@@ -1,0 +1,38 @@
+Asami:~ peterherman$ cd desktop
+Asami:desktop peterherman$ mkdir test
+Asami:desktop peterherman$ cd test
+Asami:test peterherman$ touch index.html styles.css aboutMe.txt
+Asami:test peterherman$ git init
+Initialized empty Git repository in /Users/peterherman/Desktop/test/.git/
+Asami:test peterherman$ echo "Name: Peter Herman" >> aboutMe.txt
+Asami:test peterherman$ git add index.html styles.css aboutMe.txt
+Asami:test peterherman$ git commit -m "First Commit"
+[master (root-commit) f1f7d99] First Commit
+ 3 files changed, 1 insertion(+)
+ create mode 100644 aboutMe.txt
+ create mode 100644 index.html
+ create mode 100644 styles.css
+Asami:test peterherman$ echo "favorite movie: star wars" >> aboutMe.txt
+Asami:test peterherman$ git add aboutMe.txt
+Asami:test peterherman$ git commit -m "added fav movie"
+[master f6cfd5e] added fav movie
+ 1 file changed, 1 insertion(+)
+Asami:test peterherman$ git log
+commit f6cfd5ed8b705b1b152093527886d06c3a48cdde
+Author: Peter Herman <peter.b.herman@gmail.com>
+Date:   Sat Feb 25 10:00:48 2017 -0600
+
+    added fav movie
+
+commit f1f7d991b994a7a9d32e1382b61ac967e55d26b2
+Author: Peter Herman <peter.b.herman@gmail.com>
+Date:   Sat Feb 25 09:59:56 2017 -0600
+
+    First Commit
+Asami:test peterherman$ git revert -n f6cfd5ed8b705b1b152093527886d06c3a48cdde
+Asami:test peterherman$ echo "fav tv: buffy" >> aboutMe.txt
+Asami:test peterherman$ git add aboutMe.txt
+Asami:test peterherman$ git commit -m "added tv"
+[master 3b211cf] added tv
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Asami:test peterherman$ 
