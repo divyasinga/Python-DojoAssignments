@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}">
+       <title>Results</title>
+    </head>
+    <body>
+        <div id="wrapper2">
+            <div id="infobox">
+                <h1>Submitted Info</h1>
+                <div class="formgrp">
+                    <p>Name: {{ name }}</p>
+                </div>
+                <div class="formgrp">
+                    <p>Location: {{ location }}</p>
+                </div>
+                <div class="formgrp">
+                    <p>Language: {{ language }}</p>
+                </div>
+                <div class="formgrp">
+                    <p>Comments: {{ comments }}</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
