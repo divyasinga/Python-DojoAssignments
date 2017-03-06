@@ -8,7 +8,7 @@ def get_matching_words():
  		    matches.append(word)
         elif re.search(r'ss', word):
             matches.append(word)
-        elif re.search(r"\w*?e\b", word):
+        elif re.search(r"\w*e\b", word):
             matches.append(word)
         elif re.search(r"b\wb", word):
             matches.append(word)
@@ -20,7 +20,7 @@ def get_matching_words():
             matches.append(word)
         elif re.search(r"\w*a\w*e\w*i\w*o\w*u\w*y\w*", word):
             matches.append(word)
-        elif re.search(r"\w+.", word):
+        elif re.search(r"(.)\1", word):
             matches.append(word)
     print matches
     print words
