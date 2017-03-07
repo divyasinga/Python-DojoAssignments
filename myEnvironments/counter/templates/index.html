@@ -1,0 +1,21 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}">
+       <title>Counter</title>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="databox">
+                <h1>Counter</h1>
+                <p>{{ session['counter'] }}</p>
+                <form action="/double" method="POST">
+                    <button name="double" id="doublebutton">Double</button>
+                </form>
+                <form action="/clear" method="POST">
+                    <button name="clear" id="redbutton">Clear</button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,48 @@
+* { 
+    box-sizing: border-box; 
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+#wrapper{
+    width: 90%;
+    margin: auto;
+    padding-top: 3em;
+}
+#databox{
+    width: 40%;
+    margin: auto;
+    border: 3px solid black;
+    border-radius: .5em;
+    padding: 1.5em;
+}
+h1{
+    margin: 0;
+}
+
+p {
+    font-size: 1.5em;
+}
+form{
+    display: inline-block;
+    vertical-align: top;
+}
+button {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0;
+    cursor: pointer;
+    border-radius: .5em;
+}
+#redbutton{
+    background-color: #f44336; 
+    margin-left: 1em;
+}
+#doublebutton{
+    background-color: #4CAF50;
+}
