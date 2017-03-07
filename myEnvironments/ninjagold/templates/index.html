@@ -1,0 +1,58 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript" src="{{ url_for('static', filename='js/script.js')}}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}">
+       <title>Number Game</title>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="ninjabox">
+                <h3>Your gold:</h3>
+                <p id="totalg">{{ session['gold'] }}</p>
+                <div class="moneymakers">
+                    <h2>Farm</h2>
+                    <p>Earn 10 - 20 gold</p>
+                    <form action="/process_gold" method="POST">
+                        <input type="hidden" name="acquisition" value="farm"/>
+                        <input type="submit" value="Find Gold!"/>
+                    </form>
+                </div>
+                <div class="moneymakers">
+                    <h2>Cave</h2>
+                    <p>Earn 5 - 10 gold</p>
+                    <form action="/process_gold" method="POST">
+                        <input type="hidden" name="acquisition" value="cave"/>
+                        <input type="submit" value="Find Gold!"/>
+                    </form>
+                </div>
+                <div class="moneymakers">
+                    <h2>House</h2>
+                    <p>Earn 2 - 5 gold</p>
+                    <form action="/process_gold" method="POST">
+                        <input type="hidden" name="acquisition" value="house"/>
+                        <input type="submit" value="Find Gold!"/>
+                    </form>
+                </div>
+                <div class="moneymakers">
+                    <h2>Dabo Table</h2>
+                    <p>Risk 50 gold</p>
+                    <form action="/process_gold" method="POST">
+                        <input type="hidden" name="acquisition" value="dabo"/>
+                        <input type="submit" value="Find Gold!"/>
+                    </form>
+                </div>
+                <div id="activity">
+                    <h2>Activity</h2>
+                    <textarea class="goldfeed" cols="60" rows="7">{{ session['activity'] }}</textarea>
+                </div>
+                <div id="bankruptcy">
+                    <form action="/process_gold" method="POST">
+                        <input type="hidden" name="acquisition" value="bankrupt"/>
+                        <input type="submit" value="Lose It All!"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

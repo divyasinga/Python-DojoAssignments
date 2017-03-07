@@ -8,21 +8,15 @@ def sumSessionCounter():
   except KeyError:
     session['counter'] = 1
 
-def sumSessionCounter2():
-  try:
-    session['counter'] += 2
-  except KeyError:
-    session['counter'] = 2
-
 @app.route('/')
 def index():
   sumSessionCounter()
   return render_template("index.html", counter='counter')
-  print counter
 
 @app.route('/double', methods=["POST"])
 def doublesession():
-    sumSessionCounter2()
+    sumSessionCounter()
+    sumSessionCounter()
     return render_template("index.html", counter='counter')
 
 @app.route('/clear', methods=["POST"])
