@@ -1,0 +1,20 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}">
+       <title>Number Game</title>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="databox">
+                <h1>The Great Number Game</h1>
+                <p>Pick a number between 0 and 100</p>
+                <div id="toolow">Your guess is too low!</div>
+                <form action="/guess" method="POST">
+                    <input name="guessdata" type="text">
+                    <button name="guessbtn">Guess</button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
