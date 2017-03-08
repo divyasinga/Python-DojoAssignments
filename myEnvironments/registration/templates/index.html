@@ -1,0 +1,78 @@
+<html>
+<head>
+  <title>Registration</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}">
+</head>
+<body>
+  <div id='wrapper'>
+    <h1>Registration Page</h1>
+    <form action='/process' method='POST'>
+      <div class="forminput">
+        Email:<input type="text" name="email">
+        {% with messages = get_flashed_messages(category_filter=["emailerror"]) %}
+        {% if messages %}
+          {% for message in messages %}
+              <p class="txtwarning">{{ message }}</p>
+          {% endfor %}
+        {% endif %}
+    {% endwith %}
+    </div>
+    <div class="forminput">
+      First Name: <input type="text" name="first_name">
+    </div>
+    <div class="forminput">
+      Last Name: <input type="text" name="last_name">
+      {% with messages = get_flashed_messages(category_filter=["nameerror"]) %}
+        {% if messages %}
+          {% for message in messages %}
+              <p class="txtwarning">{{ message }}</p>
+          {% endfor %}
+        {% endif %}
+    {% endwith %}
+    {% with messages = get_flashed_messages(category_filter=["nameformat"]) %}
+        {% if messages %}
+          {% for message in messages %}
+              <p class="txtwarning">{{ message }}</p>
+          {% endfor %}
+        {% endif %}
+    {% endwith %}
+    </div>
+    <div class="forminput">
+      Password: <input type="password" name="password">
+    </div>
+    <div class="forminput">
+      Confirm: <input type="password" name="confirm">
+      {% with messages = get_flashed_messages(category_filter=["pwerror"]) %}
+        {% if messages %}
+          {% for message in messages %}
+              <p class="txtwarning">{{ message }}</p>
+          {% endfor %}
+        {% endif %}
+    {% endwith %}
+    {% with messages = get_flashed_messages(category_filter=["shortpw"]) %}
+        {% if messages %}
+          {% for message in messages %}
+              <p class="txtwarning">{{ message }}</p>
+          {% endfor %}
+        {% endif %}
+    {% endwith %}
+    {% with messages = get_flashed_messages(category_filter=["pwmatch"]) %}
+        {% if messages %}
+          {% for message in messages %}
+              <p class="txtwarning">{{ message }}</p>
+          {% endfor %}
+        {% endif %}
+    {% endwith %}
+    {% with messages = get_flashed_messages(category_filter=["pwformat"]) %}
+        {% if messages %}
+          {% for message in messages %}
+              <p class="txtwarning">{{ message }}</p>
+          {% endfor %}
+        {% endif %}
+    {% endwith %}
+    </div>
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+</body>
+</html>

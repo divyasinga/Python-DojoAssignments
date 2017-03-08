@@ -1,0 +1,13 @@
+/*#wrapper{
+
+}*/
+.forminput{
+    display: block;
+    padding: 10px;
+}
+.txwarning{
+   color: red;
+}
+h1{
+    color:blue;
+}

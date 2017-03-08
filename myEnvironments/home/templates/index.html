@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Home Page</title>
+    </head>
+    <body>
+        <h1>You are home</h1>
+        <a href="/indy">Indiana</a>
+        <br>
+        <a href="/cali">California</a>
+        <br>
+        <a href="/ny">New York</a>
+        <br>
+        {% if session.username %}
+        <a href="/logout">Logout</a>
+        <br>
+        {% else %}
+        <a href="/login">Login</a>
+        <br>
+        {% endif %}
+         {{ session.username }}
+         <br>
+         {% for location in session.trip_history %}
+            {{ location }} <br>
+         {% endfor %}
+    </body>
+</html>

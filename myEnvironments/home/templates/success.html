@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Successful Login</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+    <h1>Good job logging in. Welcome to the CIA's secret database of all Americans' phone records</h1>
+    This is your email: {{ template_email }}
+    <br>
+    Here is your password, written out for all to see: {{ template_pw }}
+    <br>
+    Username: {{ session.username }}
+    </body>
+</html>
