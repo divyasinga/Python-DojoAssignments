@@ -11,6 +11,13 @@
                 <form action='/result' method='POST'>
                     <div class="formgrp">
                         <label for="name">Your Name:</label> <input type='text' name='name'>
+            {% with messages = get_flashed_messages(category_filter=["namefield"]) %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p class="warning">{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
                     </div>
                     <div class="formgrp">
                         <label for="dojo">Dojo Location:</label>
@@ -31,6 +38,13 @@
                     </div>
                     <label for="comment">Comment (optional):</label>
                     <textarea name="comment" rows="10" cols="33">Comments</textarea>
+            {% with messages = get_flashed_messages(category_filter=["commentfield"]) %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p class="warning">{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
                     <input type='submit' value='submit'>
                 </form>
             </div>
