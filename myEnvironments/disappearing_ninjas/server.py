@@ -5,23 +5,29 @@ app.secret_key = "ThisIsSecret!"
 
 @app.route('/', methods=['GET'])
 def index():
-  return render_template("index.html")
+    session['turtle'] = "tmnt.png"
+    return render_template("index.html")
 
 @app.route('/ninja', methods=['GET'])
 def ninja():
-  return render_template("ninja.html")
+    return render_template("ninja.html")
 
 @app.route('/ninja/<color>', methods=['GET'])
 def ninjacolor(color):
     if color == "blue":
-        return render_template("blueninja.html")
+        session['turtle'] = "leonardo.jpg"
+        return redirect("/ninja")
     if color == "red":
-        return render_template("redninja.html")
+        session['turtle'] = "raphael.jpg"
+        return redirect("/ninja")
     if color == "purple":
-        return render_template("purpleninja.html")
+        session['turtle'] = "donatello.jpg"
+        return redirect("/ninja")
     if color == "orange":
-        return render_template("orangeninja.html")
+        session['turtle'] = "michelangelo.jpg"
+        return redirect("/ninja")
     else:
-        return render_template("april.html")
+        session['turtle'] = "notapril.jpg"
+        return redirect("/ninja")
 
 app.run(debug=True)
