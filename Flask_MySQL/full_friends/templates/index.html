@@ -1,30 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title></title>
+        <title>Friends List</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!--<link href="css/style.css" rel="stylesheet">-->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}">
     </head>
     <body>
-    <img src="https://media0dk-a.akamaihd.net/82/30/9d621d9328d3692eda304da6438b7467.jpg"/>
-    <h1>Friends</h1>
-    <form action="/addfriend" method="POST">
-        <input type="text" name="first_name">
-        <input type="text" name="last_name">
-        <input type="text" name="email">
-        <button type="submit" name="submit">Add Friend</button>
-    </form>
-    {% for friend in allfriends %}
-        {{ friend.first_name }}
-        {{ friend.last_name }}<br>
-        {{ friend.email }}<br>
-        <form action="editfriend/{{ friend['id'] }}">
-        <button name="edit" type="submit">Edit</button>
-        </form>
-        <form action="deletefriend/{{ friend['id'] }}" method="POST">
-        <button name="remove" type="submit">Delete</button>
-        </form>
-    {% endfor %}
+    <div id="wrapper">
+        <div id="friendbox">
+            <h1>Friends</h1>
+            <div id="addinfo">
+                <h2> Add a friend </h2>
+                <form action="/addfriend" method="POST">
+                    First Name: <input type="text" name="first_name">
+                    Last Name: <input type="text" name="last_name">
+                    Email: <input type="text" name="email">
+                    <button type="submit" name="submit">Add Friend</button>
+                </form>
+            </div>
+            <div id="friendlist">
+                <h3>Friends List</h3>
+            {% for friend in allfriends %}
+               <p> {{ friend.first_name }}
+                {{ friend.last_name }}</p>
+                <p>{{ friend.email }}</p>
+                <form action="editfriend/{{ friend['id'] }}">
+                <button name="edit" type="submit">Edit</button>
+                </form>
+                <form action="deletefriend/{{ friend['id'] }}" method="POST">
+                <button name="remove" type="submit">Delete</button>
+                </form>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
     </body>
 </html>

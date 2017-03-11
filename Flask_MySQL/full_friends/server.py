@@ -35,14 +35,19 @@ def deletefriend(id):
 
 @app.route('/editfriend/<id>')
 def edit(id):
+    query = "SELECT * FROM friends WHERE id = :id"
+    data = {
+        "id": id
+    }
+    allfriends = mysql.query_db(query, data)
     session['data'] = id
-    return render_template('edit-friends.html')
+    return render_template('edit-friends.html', allfriends=allfriends)
 
 
 @app.route('/submitedit', methods=['POST'])
 def submitdata():
 
-    query = 'UPDATE friends SET (first_name, last_name, email, updated_at) VALUES (:first_name, :last_name, :email, NOW()) WHERE id = :id'
+    query = 'UPDATE friends SET first_name = :first_name, last_name = :last_name, email = :email, updated_at = NOW() WHERE id = :id'
     
     data = {
     'first_name': request.form['first_name'],
@@ -50,10 +55,7 @@ def submitdata():
     'email': request.form['email'],
     'id': session['data']
     }
-    
-    print'++++++++++++++++++++++++++++++++++++++++++++++++++'
-    print query
-    print data
+
     mysql.query_db(query, data)
     session.clear()
     return redirect('/')
