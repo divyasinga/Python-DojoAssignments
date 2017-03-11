@@ -14,11 +14,7 @@ def index():
 
 @app.route('/validate', methods=['POST'])
 def valid():
-    if len(request.form['emailinput']) < 1:
-        flash('Email cannot be blank!')
-        print "email blank"
-        return redirect('/')
-    elif not EMAIL_REGEX.match(request.form['emailinput']):
+    if not EMAIL_REGEX.match(request.form['emailinput']):
         flash('Email format invalid')
         return redirect('/')
     else:

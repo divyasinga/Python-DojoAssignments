@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--<link href="css/style.css" rel="stylesheet">-->
+    </head>
+    <body>
+    <img src="https://media0dk-a.akamaihd.net/82/30/9d621d9328d3692eda304da6438b7467.jpg"/>
+    <h1>Friends</h1>
+    <form action="/addfriend" method="POST">
+        <input type="text" name="first_name">
+        <input type="text" name="last_name">
+        <input type="text" name="email">
+        <button type="submit" name="submit">Add Friend</button>
+    </form>
+    {% for friend in allfriends %}
+        {{ friend.first_name }}
+        {{ friend.last_name }}<br>
+        {{ friend.email }}<br>
+        <form action="editfriend/{{ friend['id'] }}">
+        <button name="edit" type="submit">Edit</button>
+        </form>
+        <form action="deletefriend/{{ friend['id'] }}" method="POST">
+        <button name="remove" type="submit">Delete</button>
+        </form>
+    {% endfor %}
+    </body>
+</html>
