@@ -7,6 +7,10 @@ app.secret_key = 'ThisIsSecret'
 
 @app.route('/')
 def index():
+    if 'gold' not in session:
+        session['gold'] = 0
+    elif 'activity' not in session:
+        session['activity'] = "Time to make some money."
     return render_template("index.html")
 
 @app.route('/process_gold', methods=["POST"])

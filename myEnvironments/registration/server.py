@@ -11,7 +11,7 @@ app.secret_key = "ThisIsSecret!"
 
 @app.route('/', methods=['GET'])
 def index():
-  return render_template("index.html")
+    return render_template("index.html")
   
 @app.route('/process', methods=['POST'])
 def submit():

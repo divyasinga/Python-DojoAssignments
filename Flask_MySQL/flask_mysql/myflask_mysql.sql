@@ -1,0 +1,1 @@
+insert into friends ('first_name', 'last_name', 'occupation') values ('Adam', 'Guerino', 'producer')

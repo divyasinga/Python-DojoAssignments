@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Email Success</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+    <p> The email address you entered {{ session.newemail }} is valid!</p>
+    <div id="emaildb">
+        <h2>Email Addresses Entered</h2>
+        {% for email in all_emails: %}
+        <p>Email: {{ email['user_email'] }}</p>
+        <p>Created: {{ email['created_at'] }}</p>
+        <form action="remove_email/{{ email['id'] }}" method="POST">
+        <button name="remove" type="submit">Delete</button>
+        </form>
+        {% endfor %}
+    </div>
+    </form>
+    </body>
+</html>

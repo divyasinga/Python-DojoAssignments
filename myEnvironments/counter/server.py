@@ -11,13 +11,12 @@ def sumSessionCounter():
 @app.route('/')
 def index():
   sumSessionCounter()
-  return render_template("index.html", counter='counter')
+  return render_template("index.html")
 
 @app.route('/double', methods=["POST"])
 def doublesession():
     sumSessionCounter()
-    sumSessionCounter()
-    return render_template("index.html", counter='counter')
+    return redirect('/')
 
 @app.route('/clear', methods=["POST"])
 def clearsession():
