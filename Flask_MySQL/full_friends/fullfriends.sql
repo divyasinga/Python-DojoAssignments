@@ -1,1 +1,0 @@
-UPDATE IN friends SET ('first_name': 'Peter', 'last_name': 'Herman', 'peter@herman.com') where id = 5

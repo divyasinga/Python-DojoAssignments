@@ -1,0 +1,55 @@
+* { 
+    box-sizing: border-box; 
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1{
+    margin: 0;
+    display: inline-block;
+    vertical-align: top;
+}
+#wrapper{
+    width: 90%;
+    margin: auto;
+    padding-top: 2em;
+}
+.alert{
+    color: red;
+}
+input[type=text], input[type=password]{
+    display: block;
+    margin-bottom: 10px;
+    padding: 12px 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1.2em;
+}
+button {
+    border: none;
+    color: white;
+    padding: 7px 10px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: .5em;
+    background-color: lightskyblue;
+    margin-top: 10px;
+}
+#boop {
+    text-align: center;
+}
+#boopimg{
+    width: 40px;
+    display: inline-block;
+}
+#register{
+    width: 30%;
+    display: inline-block;
+}
+#login{
+    width: 40%;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 40px;
+}
