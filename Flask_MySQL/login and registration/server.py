@@ -38,10 +38,6 @@ def register():
             'email': request.form['htmlemail'],
             'password': pw_hash
         }
-
-        print query
-        print data
-        print '===================================================='
         mysql.query_db(query,data)
         return redirect('/success')
 

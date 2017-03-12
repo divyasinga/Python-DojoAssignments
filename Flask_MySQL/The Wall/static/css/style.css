@@ -1,0 +1,93 @@
+* { 
+    box-sizing: border-box; 
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1{
+    margin: 0;
+    display: inline-block;
+}
+h3{
+    margin: 0;
+}
+#wrapper{
+    width: 70%;
+    margin: auto;
+    padding-top: 2em;
+}
+.alert{
+    color: red;
+    display: block;
+}
+input[type=text], input[type=password]{
+    display: block;
+    margin-bottom: 10px;
+    padding: 12px 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1.2em;
+}
+button {
+    border: none;
+    color: white;
+    padding: 7px 10px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: .5em;
+    background-color: lightskyblue;
+    margin-top: 10px;
+}
+#logout{
+    float: right;
+    display: inline-block;
+    vertical-align: top;
+}
+p{
+    display: inline-block;
+}
+#postbtn{
+    display: inline-block;
+}
+#posttext{
+    display: block;
+    width: 50em;
+    height: 10em;
+    outline: none;
+    resize: none;
+    overflow: auto;
+}
+.comments{
+    display: block;
+    margin-left: 10px;
+    padding: 1em;
+}
+.comment{
+    display: inline-block;
+    margin-bottom: 10px;
+}
+.commentauthor{
+    margin: 0;
+    display: inline-block;
+}
+.post{
+    margin-top: 30px;
+    width: 50%;
+}
+.commenttext{
+    display: block;
+    width: 30em;
+    height: 5em;
+    outline: none;
+    resize: none;
+    overflow: auto;
+}
+#register{
+    display: inline-block;
+}
+#login{
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 25px;
+}
