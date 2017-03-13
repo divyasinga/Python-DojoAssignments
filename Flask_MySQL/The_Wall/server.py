@@ -23,7 +23,6 @@ def login():
     if user[0]['password'] == pw:
         session['user'] = user[0]['first_name']
         session['id'] = user[0]['id']
-        print session['id']
         return redirect('/wall')
     else:
         flash('Invalid username or password', 'loginerror')
@@ -87,7 +86,6 @@ def logout():
 def post():
     posttext = request.form['posttext']
     userid = session['id']
-    print posttext
     if len(posttext) > 0:
         query = 'INSERT INTO messages (message, user_id, created_at, updated_at) VALUES (:message, :user_id, NOW(), NOW())'
         data = {
@@ -119,7 +117,6 @@ def comment(postid):
 
 @app.route('/delete/<postid>', methods=['POST'])
 def delete(postid):
-    # if statement to confirm user is in session
     deletepostcomments = 'DELETE from comments WHERE message_id = :id'
     data = {
         'id': postid

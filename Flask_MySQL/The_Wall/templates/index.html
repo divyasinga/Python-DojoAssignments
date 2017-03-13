@@ -9,51 +9,51 @@
     <body>
         <div id="wrapper">
         <div id="register">
-        <h2>Register</h2>
-        <form action="/register" method="POST">
-            First Name: <input type="text" name="htmlfirst_name">
-            Last Name: <input type="text" name="htmllast_name">
-            {% with errors = get_flashed_messages(category_filter=["nameerror"]) %}
-                    {% if errors %}
-                    {%- for msg in errors %}
-                    <p class="alert">{{ msg }}<p>
-                    {% endfor -%}
-                {% endif %}
-            {% endwith %}
-            Email: <input type="text" name="htmlemail">
-            {% with errors = get_flashed_messages(category_filter=["emailerror"]) %}
-                    {% if errors %}
-                    {%- for msg in errors %}
-                    <p class="alert">{{ msg }}<p>
-                    {% endfor -%}
-                {% endif %}
-            {% endwith %}
-            Password: <input type="password" name="htmlpw">
-            Confirm: <input type="password" name="htmlconfirm">
-            {% with errors = get_flashed_messages(category_filter=["pwerror"]) %}
-                    {% if errors %}
-                    {%- for msg in errors %}
-                    <p class="alert">{{ msg }}<p>
-                    {% endfor -%}
-                {% endif %}
-            {% endwith %}
-            <button type="submit" name="register">Register</button>
-        </form>
+            <h2>Register</h2>
+            <form action="/register" method="POST">
+                First Name: <input type="text" name="htmlfirst_name">
+                Last Name: <input type="text" name="htmllast_name">
+                {% with errors = get_flashed_messages(category_filter=["nameerror"]) %}
+                        {% if errors %}
+                        {%- for msg in errors %}
+                        <p class="alert">{{ msg }}<p>
+                        {% endfor -%}
+                    {% endif %}
+                {% endwith %}
+                Email: <input type="text" name="htmlemail">
+                {% with errors = get_flashed_messages(category_filter=["emailerror"]) %}
+                        {% if errors %}
+                        {%- for msg in errors %}
+                        <p class="alert">{{ msg }}<p>
+                        {% endfor -%}
+                    {% endif %}
+                {% endwith %}
+                Password: <input type="password" name="htmlpw">
+                Confirm: <input type="password" name="htmlconfirm">
+                {% with errors = get_flashed_messages(category_filter=["pwerror"]) %}
+                        {% if errors %}
+                        {%- for msg in errors %}
+                        <p class="alert">{{ msg }}<p>
+                        {% endfor -%}
+                    {% endif %}
+                {% endwith %}
+                <button type="submit" name="register">Register</button>
+            </form>
         </div>
         <div id="login">
-        <h2>Login</h2>
-        <form action="/login" method="POST">
-            Email: <input type="text" name="loginemail">
-            Password: <input type="password" name="loginpw">
-            {% with errors = get_flashed_messages(category_filter=["loginerror"]) %}
-                    {% if errors %}
-                    {%- for msg in errors %}
-                    <p class="alert">{{ msg }}<p>
-                    {% endfor -%}
-                {% endif %}
-            {% endwith %}
-            <button type="submit" name="login">Login</button>
-        </form>
+            <h2>Login</h2>
+            <form action="/login" method="POST">
+                Email: <input type="text" name="loginemail">
+                Password: <input type="password" name="loginpw">
+                {% with errors = get_flashed_messages(category_filter=["loginerror"]) %}
+                        {% if errors %}
+                        {%- for msg in errors %}
+                        <p class="alert">{{ msg }}<p>
+                        {% endfor -%}
+                    {% endif %}
+                {% endwith %}
+                <button type="submit" name="login">Login</button>
+            </form>
         </div>
         </div>
     </body>
