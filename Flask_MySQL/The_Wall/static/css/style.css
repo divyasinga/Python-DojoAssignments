@@ -41,11 +41,11 @@ button {
 }
 #logout{
     float: right;
-    display: inline-block;
     vertical-align: top;
 }
 p{
     display: inline-block;
+    margin: 0;
 }
 #postbtn{
     display: inline-block;
@@ -90,4 +90,10 @@ p{
     display: inline-block;
     vertical-align: top;
     margin-left: 25px;
+}
+#postinfo{
+    display: block;
+}
+.deletebtn{
+    margin-bottom: 10px;
 }

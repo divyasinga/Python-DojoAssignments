@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>The Wall</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}">
+    </head>
+    <body>
+        <div id="wrapper">
+        <h1>The Wall</h1>
+        <form action="/logout" method="POST">
+            <button type="submit" name="logout" id="logout">Log Out</button>
+        </form> 
+        <h3>Hello {{ session.user }}</h3>
+        <form action="/post" method="POST">
+            <textarea name="posttext" id="posttext"></textarea>
+            {% with errors = get_flashed_messages(category_filter=["posterror"]) %}
+                    {% if errors %}
+                    {%- for msg in errors %}
+                    <p class="alert">{{ msg }}<p>
+                    {% endfor -%}
+                {% endif %}
+            {% endwith %}
+            <p>What's on your mind?</p>
+            <button type="submit" name="postbtn" id="postbtn">Post</button>
+        </form>
+
+             <!--user post-->
+            <div class="post">
+            {% for message in messages %}
+            <h3>Post</h3>
+            <div class="postinfo">
+                {{ message.first_name }} {{ message.last_name }} at {{ message.created_at }} 
+            </div>
+            <div class="msginfo">
+                {{ message.message }} 
+
+                <!--user delete button-->
+
+                {% if message.user_id == user %}
+                <form action="/delete/{{ message.id }}" method="POST">
+                <button type="submit" name="deletemessage" class="deletebtn">Delete</button>
+                </form>
+                {% endif %}
+            </div>  
+
+            <!--user comments-->
+
+            <form action="/comment/{{ message.id }}" method="POST">
+            <textarea name="commenttext" class="commenttext"></textarea>
+            <p>Leave a comment</p>
+            <button type="submit" name="postbtn">Post</button>
+            </form>
+            <div class="comments">
+                {% for comment in comments %}
+                    {% if comment.message_id == message.id %}
+                        <h3> Comment</h3>
+                        <p class="commentauthor"> {{ comment.first_name }}:</p>
+                        <p class="comment"> {{ comment.comment_text }}</p>
+                    {% endif %}
+                {% endfor %}
+         </div>
+        {% endfor %}
+        </div>
+        </div>
+    </body>
+</html>
