@@ -1,0 +1,59 @@
+<html lang="en">
+    <head>
+        {% load staticfiles %}
+        <meta charset="utf-8">
+        <title>NinjaGold</title>
+        <link rel="stylesheet" href="{% static 'acquisition/css/style.css' %}">
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="ninjabox">
+                <h3>Your gold:</h3>
+                <p>{{ request.session.gold }}</p>
+                <div class="moneymakers">
+                    <h2>Farm</h2>
+                    <p>Earn 10 - 20 gold</p>
+                    <form action="/processmoney/farm" method="POST">
+                    {% csrf_token %}
+                        <input type="submit" name="farm" value="Find Gold!"/>
+                    </form>
+                </div>
+                <div class="moneymakers">
+                    <h2>Cave</h2>
+                    <p>Earn 5 - 10 gold</p>
+                    <form action="/processmoney/cave" method="POST">
+                    {% csrf_token %}
+                        <input type="submit" name="cave" value="Find Gold!"/>
+                    </form>
+                </div>
+                <div class="moneymakers">
+                    <h2>House</h2>
+                    <p>Earn 2 - 5 gold</p>
+                    <form action="/processmoney/house" method="POST">
+                    {% csrf_token %}
+                        <input type="submit" name="house" value="Find Gold!"/>
+                    </form>
+                </div>
+                <div class="moneymakers">
+                    <h2>Dabo Table</h2>
+                    <p>Risk 50 gold</p>
+                    <form action="/processmoney/dabo" method="POST">
+                    {% csrf_token %}
+                        <input type="submit" name="dabo" value="Find Gold!"/>
+                    </form>
+                </div>
+                <div id="activity">
+                    <h2>Activity</h2>
+                    <textarea readonly class="goldfeed" cols="60" rows="7">{{ request.session.activity }}</textarea>
+                </div>
+                <div id="bankruptcy">
+                    <form action="/processmoney/bankrupt" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="goldhunt" value="bankrupt"/>
+                        <input type="submit" value="Lose It All!"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
