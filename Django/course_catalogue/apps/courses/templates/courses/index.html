@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load staticfiles %}
+        <title>Course Catalogue</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'courses/css/style.css' %}">
+    </head>
+    <body>
+        <div id="wrapper">
+            <h2>Add a Course</h2>
+            <form action="/coursesubmission" method="POST">
+            {% csrf_token %}
+                <label for="coursename">Name:</label>
+                <input type="text" name="coursename">
+                <br>
+                <label for="coursedesc">Description:</label>
+                <br>
+                <textarea type="text" name="coursedesc" cols=32 rows=5></textarea>
+                <br>
+                <button type="submit" name="submitcourse">Add</button>
+            </form>
+            <h2>Courses</h2>
+            <table>
+                <tr>
+                    <th>Course Name</th>
+                    <th>Description</th>
+                    <th>Date Added</th>
+                    <th>Actions</th>
+                </tr>
+                {% for course in courses %}
+                <tr>
+                    <td>{{ course.name }}</td>
+                    <td>{{ course.description }}</td>
+                    <td>{{ course.created_at }}</td>
+                    <td><a href="/delete/{{course.id}}">Delete</a></td>
+                </tr>
+                {% empty %}
+                        <p>No leagues found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
+                {% endfor %}
+            </table>
+        </div>
+    </body>
+</html>
