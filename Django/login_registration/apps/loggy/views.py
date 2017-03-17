@@ -9,7 +9,7 @@ def index(request):
 
 def register(request):
     if request.method == 'POST':
-        if User.objects.validate(request.POST['email']) and User.objects.validpw(request.POST['regpw']) and (request.POST['regpw'] == request.POST['regconfirm']):
+        if User.objects.validate(request.POST['email']) and User.objects.validpw(request.POST['regpw']) and (request.POST['regpw'] == request.POST['regconfirm'] and User.objects.get(email=request.POST['email']) == False ):
             hashed = bcrypt.hashpw(request.POST['regpw'].encode(), bcrypt.gensalt())
             User.objects.create(email=request.POST['email'], password=hashed, first_name=request.POST['first_name'], last_name=request.POST['last_name'])
             context = {
@@ -21,11 +21,14 @@ def register(request):
             messages.error(request, 'Invalid email!')
             return redirect('/')
         elif User.objects.validpw(request.POST['regpw']) == False:
-            messages.error(request, 'Invalid pw!')
+            messages.error(request, 'Invalid password!')
             return redirect('/')
         elif (request.POST['regpw'] != request.POST['regconfirm']):
-            messages.error(request, 'Invalid pw!')
+            messages.error(request, 'Passwords do not match!')
             return redirect('/')
+        elif User.objects.get(email=request.POST['email']) == True:
+            messages.error(request, 'User already exists')
+            return redirect('/') 
         else:
             return redirect('/')
 
