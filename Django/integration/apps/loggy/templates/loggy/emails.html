@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+    <h2>You have logged in.</h2>
+    {% for email in emails %}
+    <table>
+        <tr>
+            <th>Email</th>
+            <th>Created</th>
+        </tr>
+        <tr>
+            <td>{{ email.email }}</td>
+            <td>{{ email.created_at }}</td>
+        </tr>
+    </table>
+    {% endfor %}
+    </body>
+</html>

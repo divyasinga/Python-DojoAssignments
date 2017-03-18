@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Assignment</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+    <form action="{% url 'courses:assign_submit' %}" method="POST">
+        {% csrf_token %}
+        <label for="course_selector">Courses:</label>
+        <select name="course_selector" id="course_selector">
+            {% for course in courses %}
+            <option value="{{course.id}}">{{course.name}}</option>
+            {% endfor %}
+        </select>
+        <label for="user_selector">Students:</label>
+        <select name="user_selector" id="user_selector">
+            {% for user in users %}
+            <option value="{{user.id}}">{{user.first_name}} {{user.last_name}}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+        <h2>Student List</h2>
+        <ul>
+            {% for e in enrolled %}
+                <li>{{ e.course_enrolled.name }} - {{e.user_student.first_name}} {{e.user_student.last_name}}</li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'courses:course_index' %}">Return home</a>
+    </body>
+</html>
