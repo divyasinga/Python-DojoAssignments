@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Submit New Product</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <h2>New Product Info</h2>
+        <form action="{% url 'products:submit_new' %}" method="POST">
+            {% csrf_token %}
+            <label for="product_name">Name: </label><br>
+            <input type="text" name="product_name"><br>
+            <label for="product_name">Description: </label><br>
+            <textarea name="product_desc" cols="30" rows="10"></textarea><br>
+            <label for="product_name">Price: </label><br>
+            <input type="number" min="0.01" step="0.01" name="product_price">
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Product Info</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <h2>Delete Product</h2>
+        {% for p in product %}
+            Name: <br>
+            {{ p.name }}<br>
+            Description: <br>
+            {{ p.description }}<br>
+            Price: <br>
+            ${{ p.price }}<br>
+        <a href="{% url 'products:product_index' %}">Cancel</a>
+        <form action="{% url 'products:submit_delete' %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="product_id" value="{{p.id}}">
+            <button type="submit">Delete</button>
+        </form>
+        {% endfor %}
+    </body>
+</html>

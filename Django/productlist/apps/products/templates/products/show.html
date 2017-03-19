@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Product Info</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <h2>Product Info</h2>
+        {% for p in product %}
+            {% csrf_token %}
+            Name: <br>
+            {{ p.name }}<br>
+            Description: <br>
+            {{ p.description }}<br>
+            Price: <br>
+            ${{ p.price }}<br>
+        {% endfor %}
+        <a href="{% url 'products:product_index' %}">Back to all products »</a>
+    </body>
+</html>
