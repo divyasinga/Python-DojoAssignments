@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Book Info</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+    <h2>{{ book.title }} - {{book.author.name}}</h2><br>
+    <h3>Reviews</h3>
+    <hr>
+    {% for review in reviews %}
+        Reviewer Info: {{ review.reviewer.first_name }} - {{ review.created_at }}<br>
+        Rating: {{ review.rating }}<br>
+        Review: {{review.review_text}}<br><hr><br>
+    {% endfor %}
+    <h3>Write a Review for {{book.title}}</h3>
+    <form action="{% url 'reviewer:reviewer_submit' %}" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="title" value="{{ book.title }}">
+        <input type="hidden" name="author_selector" value="{{ book.author.name }}">
+        <label for="review_text">Review:</label><br>
+        <textarea name="review_text" cols="30" rows="10"></textarea><br>
+        <label for="rating">Rating:</label><br>
+        <select name="rating" id="">
+            <option value="5">5</option>
+            <option value="4">4</option>
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">1</option>   
+        </select>
+        <button type="submit">Submit Review</button>
+    </form><br><br>
+    <a href="{% url 'reviewer:reviewer_recent' %}">Back to recent</a><br><br>
+    <a href="{% url 'reviewer:logout' %}">Logout</a>
+    </body>
+</html>

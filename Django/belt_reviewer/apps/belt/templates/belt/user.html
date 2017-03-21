@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+    {{ user.first_name }} {{ user.last_name }}<br>
+    {{ user.email }} <br>
+    Total Reviews: {{ reviews.count }}<br>
+    {% if reviewcount %}
+    {% for review in reviewcount %}
+    {{ review.count }}
+    {% endfor %}
+    {%endif%}
+    <h3>Posted reviews on the following books</h3>
+    {% if reviews %}
+    {% for review in reviews %}
+    <a href="{% url 'reviewer:bookinfo' id=review.book.id %}">{{ review.book.title }}</a> - Rating: {{ review.rating }}<br>
+    {% endfor %}
+    {% endif %}
+    </body>
+</html>
