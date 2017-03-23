@@ -116,4 +116,4 @@ def user(request, id):
 
 def logout(request):
     request.session.clear()
-    return redirect('/')
+    return redirect(reverse('reviewer:reviewer_index'))
